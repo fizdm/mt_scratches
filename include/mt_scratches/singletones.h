@@ -22,7 +22,7 @@
  *   - Dependency Injection
  */
 
-namespace mt_scratches::singleton
+namespace mt_scratches::patterns::singleton
 {
 class NoMtSupportSingleton
 {
