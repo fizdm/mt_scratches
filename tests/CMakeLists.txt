@@ -21,12 +21,8 @@ set(TEST_SOURCES
     main.cpp
 )
 
-#set(ADDS_SOURCES
-#    data.txt
-#)
-#
-#file(COPY ${ADDS_SOURCES} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/adds)
-
 add_executable(${BINARY}_tests ${TEST_SOURCES})
 
 target_link_libraries(${BINARY}_tests ${BINARY}_lib gtest gmock)
+
+add_test(NAME RunAll COMMAND ${BINARY}_tests WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
