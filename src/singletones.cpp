@@ -5,7 +5,7 @@
 #include <mt_scratches/singletones.h>
 #include <mutex>
 
-namespace mt_scratches::singleton
+namespace mt_scratches::patterns::singleton
 {
 NoMtSupportSingleton* NoMtSupportSingleton::_instance = nullptr;
 

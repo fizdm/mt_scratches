@@ -33,8 +33,8 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 # Hide all exported inline symbols by default
 set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
-# Enable C++ 20
-set(CMAKE_CXX_STANDARD 20)
+# Enable C++ 23
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
