@@ -17,7 +17,7 @@
  *
  * Alternatives:
  *   - Static fabric
- *   - Static polymorphism (Type erasure)
+ *   - Static polymorphism
  *   - Service locator -- but somehow you should initialize this container T_T
  *   - Dependency Injection
  */
@@ -27,7 +27,7 @@ namespace mt_scratches::singleton
 class NoMtSupportSingleton
 {
 public:
-    static NoMtSupportSingleton* GetInstance();
+    static NoMtSupportSingleton& GetInstance();
 
     NoMtSupportSingleton(NoMtSupportSingleton const&) = delete;
     NoMtSupportSingleton& operator=(NoMtSupportSingleton const&) = delete;
@@ -42,7 +42,7 @@ private:
 class DoubleCheckingSingleton
 {
 public:
-    static DoubleCheckingSingleton* GetInstance();
+    static DoubleCheckingSingleton& GetInstance();
 
     DoubleCheckingSingleton(DoubleCheckingSingleton const&) = delete;
     DoubleCheckingSingleton& operator=(DoubleCheckingSingleton const&) = delete;
@@ -57,10 +57,10 @@ private:
 class MeyersSingleton
 {
 public:
-    static MeyersSingleton* GetInstance()
+    static MeyersSingleton& GetInstance()
     {
         static MeyersSingleton instance;
-        return &instance;
+        return instance;
     }
 
     MeyersSingleton(MeyersSingleton const&) = delete;
@@ -82,8 +82,7 @@ inline Dummy& GetDummy()
     return dummy;
 }
 
-/// Type Erasure
-
+/// Static Polymorphism
 class Interface
 {
 public:
@@ -99,7 +98,7 @@ public:
     }
 };
 
-class TypeErasureExample
+class SingletonCallerExample
 {
 public:
     static Interface& getInterface()
@@ -113,7 +112,7 @@ public:
 
     static void doCall()
     {
-        getInterface().call(); // type erasure
+        getInterface().call();
     }
 };
 

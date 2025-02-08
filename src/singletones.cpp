@@ -9,20 +9,20 @@ namespace mt_scratches::singleton
 {
 NoMtSupportSingleton* NoMtSupportSingleton::_instance = nullptr;
 
-NoMtSupportSingleton* NoMtSupportSingleton::GetInstance()
+NoMtSupportSingleton& NoMtSupportSingleton::GetInstance()
 {
     if (_instance == nullptr)
     {
         _instance = new NoMtSupportSingleton(); // Not thread safe
     }
 
-    return _instance;
+    return *_instance;
 }
 
 static std::mutex double_check_mutex;
 DoubleCheckingSingleton* DoubleCheckingSingleton::_instance = nullptr;
 
-DoubleCheckingSingleton* DoubleCheckingSingleton::GetInstance()
+DoubleCheckingSingleton& DoubleCheckingSingleton::GetInstance()
 {
     if (_instance == nullptr)
     {
@@ -31,7 +31,7 @@ DoubleCheckingSingleton* DoubleCheckingSingleton::GetInstance()
             _instance = new DoubleCheckingSingleton();
     }
 
-    return _instance;
+    return *_instance;
 }
 
 

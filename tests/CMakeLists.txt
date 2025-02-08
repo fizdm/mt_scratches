@@ -17,6 +17,7 @@ set(BUILD_GTEST ON CACHE BOOL "" FORCE)
 #########
 
 set(TEST_SOURCES
+    src/patterns.cpp
     main.cpp
 )
 
