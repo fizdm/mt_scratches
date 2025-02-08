@@ -1,0 +1,19 @@
+---
+name: CMake Build & run tests
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: CMake Build And Test Validation
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generating CMake files
+        run: cmake -B build -S ${{ github.workspace }}
+      - name: Build CMake
+        run: cmake --build build
+      - name: Run CTest
+        run: ctest --test-dir build -C Debug
+...
