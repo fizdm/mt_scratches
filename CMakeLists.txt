@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 
 # Project name
-project(NEW_PROJECT)
+project(mt_scratches)
 set(LIB_NAME ${PROJECT_NAME}_lib)
 
 # Remove unnecessary generated configs
@@ -74,6 +74,7 @@ if (MSVC)
 endif()
 
 set(PROJECT_SOURCES
+	src/singletones.cpp
 )
 
 add_library(${LIB_NAME} STATIC ${PROJECT_SOURCES})
